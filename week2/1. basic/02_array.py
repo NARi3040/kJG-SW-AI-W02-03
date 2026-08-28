@@ -13,17 +13,20 @@
 
 예제:
 입력:
-[
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
+[     0  1  2
+    0[1, 2, 3],
+    1[4, 5, 6],
+    2[7, 8, 9]
+
+
 ]
 
 출력:
-[
-    [7, 4, 1],
-    [8, 5, 2],
-    [9, 6, 3]
+[     0  1  2
+    0[7, 4, 1],
+    1[8, 5, 2],
+    2[9, 6, 3]
+
 ]
 
 힌트:
@@ -44,11 +47,17 @@ def rotate_matrix_90(matrix):
     n = len(matrix)
     
     # TODO: n x n 크기의 새로운 배열을 생성하세요 (0으로 초기화)
-    pass
-        
+    arr = [[0] * n for _ in range(n)]
+    arr = matrix
+    
     # TODO: 원본 배열의 각 요소를 회전된 위치에 배치하세요
     # 힌트: (i, j) 위치의 요소는 회전 후 (j, n-1-i) 위치로 이동
-    pass
+    rotated = [[0] * n for _ in range(n)]
+
+    for i in range(n):
+        for j in range(n):
+            rotated[j][n-1-i] = arr[i][j]
+
     
     return rotated
 
