@@ -1,3 +1,9 @@
 .omc
+.claude
+CLAUDE.md
 check_stop.py
-Hanoi.py
+i/
+custom/
+
+__pycache__/
+*.py[cod]
