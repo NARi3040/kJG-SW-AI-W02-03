@@ -38,40 +38,57 @@ class TreeNode:
         self.value = value
         self.left = None
         self.right = None
-
+    # 트리 생성:
+    #       1
+    #      / \
+    #     2   3
+    #    / \
+    #   4   5
 def preorder(root):
     """전위 순회: 루트 → 왼쪽 → 오른쪽"""
-    result = []
-    
+
     # TODO: root가 None이면 빈 리스트 반환
-    pass
-    
     # TODO: 루트 값 추가
-    pass
-    
     # TODO: 왼쪽 서브트리 순회
-    pass
-    
     # TODO: 오른쪽 서브트리 순회
-    pass
+    result = []
+    def mylifeisleft(r):
+
+        if (r == None):
+            return []
+
+        result.append(r.value)
+        mylifeisleft(r.left)
+        mylifeisleft(r.right)
+    mylifeisleft(root)
     
     return result
 
+# def preorder(root):
+#     if root is None:
+#         return []
+
+#     # [현재 노드 값] + [왼쪽 순회 결과] + [오른쪽 순회 결과]
+#     return [root.value] + preorder(root.left) + preorder(root.right)
+
 def inorder(root):
     """중위 순회: 왼쪽 → 루트 → 오른쪽"""
-    result = []
     
     # TODO: root가 None이면 빈 리스트 반환
-    pass
-    
     # TODO: 왼쪽 서브트리 순회
-    pass
-    
     # TODO: 루트 값 추가
-    pass
-    
     # TODO: 오른쪽 서브트리 순회
-    pass
+    result = []
+    def mylifeisleft(r):
+    
+        if (r == None):
+            return []
+    
+        
+        mylifeisleft(r.left)
+        result.append(r.value)
+        mylifeisleft(r.right)
+    mylifeisleft(root)
     
     return result
 
@@ -90,6 +107,15 @@ def postorder(root):
     
     # TODO: 루트 값 추가
     pass
+    def mylifeisleft(r):
+    
+        if (r == None):
+            return []
+    
+        mylifeisleft(r.left)
+        mylifeisleft(r.right)
+        result.append(r.value)
+    mylifeisleft(root)
     
     return result
 
