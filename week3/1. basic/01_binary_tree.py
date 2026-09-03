@@ -51,6 +51,9 @@ def preorder(root):
     # TODO: 루트 값 추가
     # TODO: 왼쪽 서브트리 순회
     # TODO: 오른쪽 서브트리 순회
+    if (root == None):
+        return []
+    
     result = []
     def mylifeisleft(r):
 
@@ -61,6 +64,27 @@ def preorder(root):
         mylifeisleft(r.left)
         mylifeisleft(r.right)
     mylifeisleft(root)
+    
+    return result
+
+def preorder(root):
+    """전위 순회: 루트 → 왼쪽 → 오른쪽"""
+
+    # TODO: root가 None이면 빈 리스트 반환
+    # TODO: 루트 값 추가
+    # TODO: 왼쪽 서브트리 순회
+    # TODO: 오른쪽 서브트리 순회
+    if (root == None):
+        return []
+    
+    result = []
+
+    if (root == None):
+        return []
+
+    result.append(root.value)
+    preorder(root.left)
+    preorder(root.right)
     
     return result
 
@@ -78,6 +102,9 @@ def inorder(root):
     # TODO: 왼쪽 서브트리 순회
     # TODO: 루트 값 추가
     # TODO: 오른쪽 서브트리 순회
+    if (root == None):
+        return []
+    
     result = []
     def mylifeisleft(r):
     
@@ -94,19 +121,16 @@ def inorder(root):
 
 def postorder(root):
     """후위 순회: 왼쪽 → 오른쪽 → 루트"""
-    result = []
-    
     # TODO: root가 None이면 빈 리스트 반환
-    pass
-    
     # TODO: 왼쪽 서브트리 순회
-    pass
-    
     # TODO: 오른쪽 서브트리 순회
-    pass
-    
     # TODO: 루트 값 추가
-    pass
+
+    if (root == None):
+        return []
+    
+    result = []
+
     def mylifeisleft(r):
     
         if (r == None):
