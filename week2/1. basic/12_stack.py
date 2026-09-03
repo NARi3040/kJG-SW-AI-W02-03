@@ -42,13 +42,18 @@ def is_valid_parentheses(s):
     ## : 닫는 괄호 ')'면
     ## 스택이 비어있으면 False 반환
     ## 아니면 스택에서 pop
-    n = len(s)
+    # 지적 3: n = len(s) 는 아래에서 쓰이지 않는 변수라 삭제
     for item in s:
         if (item == "("):
-            stack.append("s")
-        elif(not stack):
-            return False
-        elif(item == ")"):
+            # 지적 1: stack.append("s") -> stack.append(item)
+            #   지금은 개수만 세면 되니 "s"를 넣어도 결과가 같지만,
+            #   괄호가 {} [] 로 늘어나면 "무엇이 열렸는지"를 스택에 담아야 함
+            stack.append(item)
+        # 지적 2: 조건 순서 - "닫는 괄호일 때" 안에서 "스택이 비었는지"를 확인
+        #   기존: elif not stack -> elif item == ")" (괄호만 들어와서 우연히 맞았음)
+        elif (item == ")"):
+            if (not stack):
+                return False
             stack.pop()
     
     # TODO: 반복이 끝나면 스택이 비어있는지 확인
@@ -56,8 +61,7 @@ def is_valid_parentheses(s):
         return False
     else:
         return True
-
-    pass
+    # 지적 3: 위 if/else 에서 항상 return 하므로 뒤의 pass 는 도달 불가 -> 삭제
 
 # 테스트 케이스
 if __name__ == "__main__":
